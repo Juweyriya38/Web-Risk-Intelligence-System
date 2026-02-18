@@ -1,0 +1,35 @@
+# config/settings.yaml
+
+# Weighted scores for individual indicators
+weights:
+  age_under_7: 40
+  age_under_30: 20
+  missing_mx: 35
+  missing_spf: 15
+  punycode_detected: 50
+  risky_tld: 15
+  brand_trust_collision: 30
+
+# Lists used for behavioral matching
+lists:
+  risky_tlds:
+    - ".top"
+    - ".xyz"
+    - ".casa"
+    - ".work"
+    - ".click"
+  brand_keywords:
+    - "chase"
+    - "paypal"
+    - "amazon"
+    - "microsoft"
+  trust_keywords:
+    - "login"
+    - "verify"
+    - "secure"
+    - "update"
+
+# Score ranges for classification
+thresholds:
+  critical: 75
+  medium: 40

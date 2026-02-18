@@ -1,0 +1,49 @@
+# Environment variables and secrets
+.env
+.env.*
+*.key
+*.pem
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE/Editor configs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs and databases
+*.log
+*.sqlite
+*.db
+*.sql
+
+# Collector output with sensitive data
+collectors/output/
+data/
+reports/
+*.whois
+*.dns
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
