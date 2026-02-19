@@ -39,9 +39,40 @@ async def lifespan(app: FastAPI):
 # Create FastAPI app
 app = FastAPI(
     title="Web Risk Intelligence System",
-    description="Domain threat assessment and risk scoring API",
+    description="""## Domain Threat Assessment & Risk Scoring API
+
+### Overview
+Production-grade domain threat assessment platform that evaluates infrastructure signals to identify potential phishing, impersonation, and malicious domains.
+
+### Features
+- 🎯 **Deterministic Scoring**: Same input always produces same output
+- 📊 **Risk Classification**: Low (0-29), Medium (30-59), High (60-79), Critical (80-100)
+- 🔍 **Intelligence Signals**: DNS, WHOIS, SSL, keywords, TLDs
+- ⚡ **Fast Analysis**: Typical response time < 15 seconds
+- 🛡️ **Graceful Degradation**: Partial results on collector failures
+
+### Quick Start
+1. Use the **POST /api/v1/analyze** endpoint below
+2. Click "Try it out"
+3. Enter a domain (e.g., "google.com" or "suspicious-login.tk")
+4. Click "Execute" to see results
+
+### Test Domains
+- **Low Risk**: google.com, github.com, amazon.com
+- **Medium Risk**: example.tk, test.ml, shop.xyz
+- **High Risk**: secure-login.com, account-verify.net
+- **Critical Risk**: secure-login.tk, bank-verify.ml
+    """,
     version="1.0.0",
     lifespan=lifespan,
+    contact={
+        "name": "API Support",
+        "url": "https://github.com/yourusername/web-risk-intelligence-system",
+    },
+    license_info={
+        "name": "MIT License",
+        "url": "https://opensource.org/licenses/MIT",
+    },
 )
 
 # CORS middleware (configure as needed)
@@ -57,13 +88,16 @@ app.add_middleware(
 app.include_router(router, prefix="/api/v1", tags=["analysis"])
 
 
-@app.get("/")
+@app.get("/", tags=["info"])
 async def root():
-    """Root endpoint."""
+    """Root endpoint with service information and quick links."""
     return {
         "service": "Web Risk Intelligence System",
         "version": "1.0.0",
         "docs": "/docs",
+        "redoc": "/redoc",
+        "openapi": "/openapi.json",
+        "health": "/api/v1/health",
     }
 
 

@@ -1,0 +1,496 @@
+{
+  "info": {
+    "name": "Web Risk Intelligence System API",
+    "description": "Comprehensive API testing collection for domain risk assessment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health & Status",
+      "item": [
+        {
+          "name": "Root Endpoint",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/",
+              "host": ["{{baseUrl}}"],
+              "path": [""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "health"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Low Risk Domains",
+      "item": [
+        {
+          "name": "Analyze google.com",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"google.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Analyze github.com",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"github.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Analyze amazon.com",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"amazon.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Medium Risk Domains",
+      "item": [
+        {
+          "name": "Risky TLD - .tk",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"example.tk\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Risky TLD - .ml",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"test.ml\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Risky TLD - .xyz",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"shop.xyz\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "High Risk Domains",
+      "item": [
+        {
+          "name": "Suspicious Keywords - login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"secure-login-portal.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Suspicious Keywords - verify",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"account-verify.net\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Suspicious Keywords - banking",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"secure-banking.org\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Critical Risk Domains",
+      "item": [
+        {
+          "name": "Compound Risk - login + .tk",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"secure-login.tk\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Compound Risk - bank + .ml",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"bank-verify.ml\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Compound Risk - paypal + security",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"paypal-security-verify.xyz\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Edge Cases",
+      "item": [
+        {
+          "name": "Subdomain",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"api.example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Punycode Domain",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"xn--80akhbyknj4f.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Localhost",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"localhost\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Error Cases",
+      "item": [
+        {
+          "name": "Invalid Domain Format",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"not a valid domain!\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Empty Domain",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Missing Domain Field",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Domain Too Long",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"a-very-long-domain-name-that-exceeds-the-maximum-allowed-length-of-253-characters-according-to-rfc-specifications-and-should-be-rejected-by-the-validation-logic-implemented-in-the-api-endpoint-to-prevent-potential-issues-with-dns-resolution-and-other-operations.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "analyze"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
