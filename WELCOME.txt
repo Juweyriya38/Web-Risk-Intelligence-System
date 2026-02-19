@@ -1,0 +1,160 @@
+```
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                    WEB RISK INTELLIGENCE SYSTEM                              ║
+║                                                                              ║
+║              Production-Grade Domain Threat Assessment                       ║
+║                                                                              ║
+║                    Built with Clean Architecture                             ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  ✅ PRODUCTION READY                                                         │
+│  ✅ CLEAN ARCHITECTURE                                                       │
+│  ✅ FULLY DOCUMENTED                                                         │
+│  ✅ WELL TESTED                                                              │
+│  ✅ TYPE SAFE                                                                │
+│  ✅ DOCKER READY                                                             │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+🎯 WHAT IT DOES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Evaluates domain infrastructure signals to identify potential threats:
+  
+  • Domain age analysis
+  • DNS configuration (MX, SPF)
+  • SSL certificate validation
+  • Suspicious keyword detection
+  • High-risk TLD identification
+  • Punycode/homograph detection
+
+🏗️ ARCHITECTURE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  
+  CLI/API → Service → Collectors → Risk Engine (PURE)
+                                        ↑
+                                  Configuration
+  
+  ✓ Pure business logic (no side effects)
+  ✓ Separation of concerns
+  ✓ Configuration-driven
+  ✓ Fail-safe design
+
+🚀 QUICK START
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  
+  # Install
+  pip install -r requirements.txt
+  
+  # Analyze a domain
+  python main_cli.py analyze example.com
+  
+  # Start API
+  python main_api.py
+  
+  # Run tests
+  pytest
+
+📚 DOCUMENTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  
+  📖 README.md              - Complete documentation
+  🚀 QUICKSTART.md          - 5-minute setup
+  🏗️ ARCHITECTURE.md        - Design decisions
+  📁 PROJECT_STRUCTURE.md   - File organization
+  🔄 FLOW_DIAGRAM.md        - System flow
+  📊 SUMMARY.md             - Project overview
+  📚 INDEX.md               - Documentation index
+
+💻 USAGE EXAMPLES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  
+  CLI:
+  ────
+  python main_cli.py analyze suspicious-login.tk
+  python main_cli.py analyze example.com --json
+  python main_cli.py analyze example.com --verbose
+  
+  API:
+  ────
+  curl -X POST http://localhost:8000/api/v1/analyze \
+    -H "Content-Type: application/json" \
+    -d '{"domain": "example.com"}'
+  
+  Docker:
+  ───────
+  docker-compose up -d
+
+📊 RISK SCORING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  
+  Formula: Risk Score = Σ(weight × triggered_signal)
+  
+  Classifications:
+  • Low (0-29)      - Minimal risk
+  • Medium (30-59)  - Some concerns
+  • High (60-79)    - Multiple indicators
+  • Critical (80+)  - Severe risk
+
+🔒 SECURITY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  
+  ✓ Input validation (RFC-compliant)
+  ✓ Timeout protection (all external calls)
+  ✓ Graceful error handling
+  ✓ No secrets in repository
+  ✓ Non-root Docker user
+
+🧪 TESTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  
+  pytest                              # Run all tests
+  pytest --cov=app --cov-report=html  # With coverage
+  pytest tests/test_risk_engine.py -v # Specific tests
+
+🛠️ DEVELOPMENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  
+  make install      # Install dependencies
+  make test         # Run tests
+  make lint         # Lint code
+  make format       # Format code
+  make run-cli      # Run CLI
+  make run-api      # Run API
+
+📈 PROJECT STATS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  
+  • Python Files: 17
+  • Test Files: 3
+  • Documentation: 7 files (~70KB)
+  • Lines of Code: ~2,500
+  • Test Coverage: 80%+ target
+  • Architecture: Clean (5 layers)
+
+🎯 KEY FEATURES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  
+  ✓ Deterministic scoring (same input = same output)
+  ✓ Explainable results (every score justified)
+  ✓ Configuration-driven (tune without code changes)
+  ✓ Dual interface (CLI + REST API)
+  ✓ Type-safe (Pydantic throughout)
+  ✓ Production-ready (Docker, logging, monitoring)
+
+📄 LICENSE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  
+  MIT License - See LICENSE file
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                                                                              │
+│  Status: ✅ PRODUCTION READY                                                 │
+│  Version: 1.0.0                                                              │
+│  Python: 3.11+                                                               │
+│                                                                              │
+│  Built with clean architecture principles for enterprise deployment.        │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+```

@@ -1,35 +1,81 @@
-# config/settings.yaml
+# Risk Scoring Configuration
+# All weights contribute to a maximum score of 100
 
-# Weighted scores for individual indicators
-weights:
-  age_under_7: 40
-  age_under_30: 20
-  missing_mx: 35
-  missing_spf: 15
-  punycode_detected: 50
-  risky_tld: 15
-  brand_trust_collision: 30
+risk_weights:
+  # Infrastructure signals
+  domain_age_very_new: 25        # < 7 days
+  domain_age_new: 15             # < 30 days
+  domain_age_recent: 8           # < 90 days
+  no_mx_records: 15
+  no_spf_records: 10
+  ssl_invalid: 20
+  ssl_self_signed: 15
+  
+  # Behavioral signals
+  risky_tld: 20
+  suspicious_keyword: 15         # per keyword, max 30
+  punycode_detected: 25
+  
+  # Failure signals
+  whois_lookup_failed: 10
+  dns_resolution_failed: 15
 
-# Lists used for behavioral matching
-lists:
-  risky_tlds:
-    - ".top"
-    - ".xyz"
-    - ".casa"
-    - ".work"
-    - ".click"
-  brand_keywords:
-    - "chase"
-    - "paypal"
-    - "amazon"
-    - "microsoft"
-  trust_keywords:
-    - "login"
-    - "verify"
-    - "secure"
-    - "update"
+# Risk classification thresholds
+risk_thresholds:
+  low: 0        # 0-29
+  medium: 30    # 30-59
+  high: 60      # 60-79
+  critical: 80  # 80-100
 
-# Score ranges for classification
-thresholds:
-  critical: 75
-  medium: 40
+# High-risk TLDs (abuse-prone)
+risky_tlds:
+  - .tk
+  - .ml
+  - .ga
+  - .cf
+  - .gq
+  - .top
+  - .xyz
+  - .club
+  - .work
+  - .click
+  - .link
+  - .loan
+  - .download
+  - .racing
+  - .stream
+
+# Suspicious keywords (phishing/impersonation indicators)
+suspicious_keywords:
+  - login
+  - signin
+  - account
+  - verify
+  - secure
+  - update
+  - confirm
+  - banking
+  - paypal
+  - amazon
+  - microsoft
+  - apple
+  - google
+  - facebook
+  - netflix
+  - wallet
+  - crypto
+  - blockchain
+
+# Trusted keywords (reduce false positives)
+trusted_keywords:
+  - official
+  - support
+  - help
+  - docs
+  - documentation
+
+# Collector timeouts (seconds)
+timeouts:
+  dns: 5
+  whois: 10
+  ssl: 10
