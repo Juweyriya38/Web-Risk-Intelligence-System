@@ -1,8 +1,9 @@
-.PHONY: help install test lint format type-check clean run-cli run-api docker-build docker-run
+.PHONY: help install test lint format type-check clean run-cli run-api docker-build docker-run venv-rebuild
 
 help:
 	@echo "Available commands:"
 	@echo "  make install      - Install dependencies"
+	@echo "  make venv-rebuild - Rebuild virtual environment from scratch"
 	@echo "  make test         - Run tests with coverage"
 	@echo "  make lint         - Run linter"
 	@echo "  make format       - Format code"
@@ -14,7 +15,20 @@ help:
 	@echo "  make docker-run   - Run Docker container"
 
 install:
+	pip install --upgrade pip setuptools wheel
 	pip install -r requirements.txt
+
+venv-rebuild:
+	@echo "⚠️  This will delete and recreate your virtual environment"
+	@echo "Make sure you've deactivated the venv first (run: deactivate)"
+	@read -p "Continue? [y/N] " -n 1 -r; \
+	echo; \
+	if [[ $$REPLY =~ ^[Yy]$$ ]]; then \
+		rm -rf venv; \
+		python3.11 -m venv venv; \
+		echo "✓ Virtual environment recreated"; \
+		echo "Now run: source venv/bin/activate && make install"; \
+	fi
 
 install-dev:
 	pip install -r requirements.txt

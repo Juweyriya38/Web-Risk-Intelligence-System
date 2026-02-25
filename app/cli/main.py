@@ -31,7 +31,7 @@ def setup_logging(verbose: bool) -> None:
 
 @app.command()
 def analyze(
-    domain: str = typer.Argument(..., help="Domain to analyze"),
+    domain: str = typer.Argument(help="Domain to analyze"),
     json_output: bool = typer.Option(False, "--json", help="Output results as JSON"),
     verbose: bool = typer.Option(False, "--verbose", "-v", help="Enable verbose logging"),
     config_path: Optional[Path] = typer.Option(
